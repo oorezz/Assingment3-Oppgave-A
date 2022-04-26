@@ -28,7 +28,7 @@ public class Dijkstra {
 
 
             if (source != i) { //If source and the next node is the same, do not print out
-                System.out.println(String.format("Distance from %s to %s is %s", source, i, distance[i]));
+                System.out.println(String.format("Cheapest route between point %s and %s is %s", source, i, distance[i]));
             }
         }
 
@@ -49,13 +49,14 @@ public class Dijkstra {
     }
 
     public static void main(String[] args) {
+        //Graph with edge values
         int graph[][] = new int[][]{
                 {0, 10, 5, 9999, 3, 12},
                 {10, 0, 17, 9, 17, 12},
                 {5, 17, 0, 35, 3, 12},
                 {9999, 9, 35, 0, 9999, 12},
-                {3, 17, 3, 0, 9999, 12},
-                {12, 12, 12, 12, 12, 12},
+                {3, 17, 3, 9999, 0, 12},
+                {12, 12, 12, 12, 12, 0},
         };
 
         Dijkstra T = new Dijkstra();
