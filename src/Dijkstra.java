@@ -1,14 +1,8 @@
-// Dijkstra's Algorithm in Java
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-
 public class Dijkstra {
 
     public static void dijkstra(int[][] graph, int source) {
         int count = graph.length;
         boolean[] visitedVertex = new boolean[count];
-        ArrayList visitedPoints = new ArrayList<>();
         int[] distance = new int[count];
         for (int i = 0; i < count; i++) {
             visitedVertex[i] = false;
@@ -27,15 +21,19 @@ public class Dijkstra {
             for (int v = 0; v < count; v++) {
                 if (!visitedVertex[v] && graph[u][v] != 0 && (distance[u] + graph[u][v] < distance[v])) {
                     distance[v] = distance[u] + graph[u][v];
-                    visitedPoints.add(v);
                 }
             }
         }
         for (int i = 0; i < distance.length; i++) {
-            System.out.println(String.format("Distance from %s to %s is %s, visited points: ", source, i, distance[i], visitedPoints));
+
+            
+            if (source != i) { //If source and the next node is the same, do not print out
+                System.out.println(String.format("Distance from %s to %s is %s", source, i, distance[i]));
+            }
         }
 
     }
+
 
     // Finding the minimum distance
     private static int findMinDistance(int[] distance, boolean[] visitedVertex) {
@@ -61,18 +59,13 @@ public class Dijkstra {
         };
 
         Dijkstra T = new Dijkstra();
-        System.out.println("Startpoint A");
-        T.dijkstra(graph, 0);
-        System.out.println("Startpoint B");
-        T.dijkstra(graph, 1);
-        System.out.println("Startpoint C");
-        T.dijkstra(graph, 2);
-        System.out.println("Startpoint D");
-        T.dijkstra(graph, 3);
-        System.out.println("Startpoint E");
-        T.dijkstra(graph, 4);
-        System.out.println("Startpoint F");
-        T.dijkstra(graph, 5);
+        int i = 0;
+        System.out.println("0 = A, 1 = B, 2 = C, 3 = D, 4 = E, 5 = F");
+        while(i < graph.length){
+            System.out.println("============================================");
+            T.dijkstra(graph, i);
+            i++;
+        }
+    }
 
     }
-}
