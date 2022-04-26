@@ -26,7 +26,7 @@ public class Dijkstra {
         }
         for (int i = 0; i < distance.length; i++) {
 
-            
+
             if (source != i) { //If source and the next node is the same, do not print out
                 System.out.println(String.format("Distance from %s to %s is %s", source, i, distance[i]));
             }
@@ -60,6 +60,7 @@ public class Dijkstra {
 
         Dijkstra T = new Dijkstra();
         int i = 0;
+        System.out.println("============================================");
         System.out.println("0 = A, 1 = B, 2 = C, 3 = D, 4 = E, 5 = F");
         while(i < graph.length){
             System.out.println("============================================");
